@@ -11,25 +11,23 @@
 
 package xd.stylesploder.model
 {
+
   public class ButtonStyleModel implements StyleModel
   {
-    public function ButtonStyleModel()
+
+    public function get cssElementName():String
     {
+      return "Button"
     }
-    
-    public function get modifiedStyles()
+
+    public function get cssNamespace():String
     {
-      
+      return "s";
     }
-    
-    public function get cssNamespace()
+
+    public function get modifiedStyles():Array
     {
-      
-    }
-    
-    public function get cssElementName()
-    {
-      
+      return null;
     }
   }
 }

@@ -11,10 +11,11 @@
 
 package xd.stylesploder.model
 {
+
   public interface StyleModel
   {
-     function get modifiedStyles():Array;
-     function get cssNamespace():String;
-     function get cssElementName():String;
+    function get cssElementName():String;
+    function get cssNamespace():String;
+    function get modifiedStyles():Array;
   }
 }
