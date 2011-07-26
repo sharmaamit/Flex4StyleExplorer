@@ -38,9 +38,6 @@
 			protected function colorpickerChangeHandler(event:ColorPickerEvent):void
 			{
 				setStyle("chromeColor",colorPicker.selectedColor);
-				testButton.setStyle("chromeColor",colorPicker.selectedColor);
-				
-				
 			}
 			
 		]]>
@@ -49,14 +46,8 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:Button id="testButton"
-			  accentColor="#00FFFF"
-			  chromeColor="#e1e1e1"
-			  color="#333333"
-			  cornerRadius="3"
-			  errorColor="#33dddd"
-			  focusAlpha="1.0"
-			  focusColor="#00DDDD"/>
+	<s:Button id="testButton"/>
+	
 	<s:HSlider id="cornerRadiusSlider"
 			   maximum="100"
 			   minimum="0"
