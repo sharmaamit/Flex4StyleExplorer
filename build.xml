@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!--ant-->
+<project name="Flex 4 Style Explorer" default="view" basedir=".">
+
+	<!-- Created by Kristofer Joseph on 2011-07-20. -->
+	<!-- Copyright (c) 2011 Adobe Systems Incorporated. All rights reserved. -->
+	
+	<!-- setup environment before reading properties -->
+	<property environment="env" />
+	<!-- Clobber with property files -->
+	<property file="build.properties" />
+	<property file="build-base.properties" />
+
+	<!-- Define required properties -->
+	<property name="PROJECT_DIR" location="${basedir}" />
+	<property name="SOURCE_DIR" location="${basedir}/src" />
+	<property name="LIBS_DIR" location="${basedir}/libs" />
+	<property name="EXTERNAL_LIBS" value="${PROJECT_DIR}/libs"/>
+	<property name="OUTPUT_DIR" value="${PROJECT_DIR}/bin" />
+	<property name="FLEX_HOME" value="YOUR FLEX SDK" />
+	<property name="SERVER" value="/Users/YOUR USER/Sites/axm" />
+	<property name="URL" value="http://localhost/~YOUR USER/.html" />
+	<property name="LOCALE" value="en_US" />
+	
+	<!-- Taskdefs -->
+	<taskdef name="mxmlc" classname="flex.ant.MxmlcTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+	<taskdef name="html-wrapper" classname="flex.ant.HtmlWrapperTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+		
+	<!-- Fail build if necessary properties are not defined yet -->
+	<fail unless="SERVER" message="Please define SERVER in your local properties file. To create the local property file, call createLocalPropertyfile" />
+	<fail unless="URL" message="Please define URL in your local properties file. To create the local property file, call createLocalPropertyfile" />
+	
+	<!-- CLEAN -->
+	<target name="clean">
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${OUTPUT_DIR}" includes="**/*" />
+		</delete>
+		<mkdir dir="${OUTPUT_DIR}" />
+	</target>
+	
+	<!-- Copy RSLs -->
+	<target name="copy_rsls" description="Copies all the rsls from the flex framework to the deploy directory">
+		<copy todir="${OUTPUT_DIR}">
+			<fileset dir="${FLEX_HOME}/frameworks/rsls">
+				<include name="*.swz" />
+				<!-- Since only milestone builds contain swzs we need to try swfs as well -->
+				<include name="*.swf" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- WRAPPER -->
+	<target name="wrapper" description="Generates HTML wrapper">
+		<html-wrapper output="${OUTPUT_DIR}" file="Flex4StyleExplorer.html" swf="Flex4StyleExplorer" history="true" express-install="true" version-detection="true" version-major="10" version-minor="2" version-revision="0" height="100%" width="100%" title="Flex 4 Style Explorer" bgcolor="white" />
+	</target>
+	
+	<!-- COMPILE -->
+	<target name="compile">
+		<mxml-compile inputfile="${SOURCE_DIR}/Flex4StyleExplorer.mxml" outputfile="${OUTPUT_DIR}/Flex4StyleExplorer.swf"/>
+	</target>
+	
+	<!-- DEPLOY -->
+	<target name="deploy" description="Deploys to local web server">
+		<copy todir="${SERVER}">
+			<fileset dir="${OUTPUT_DIR}">
+				<include name="*/**" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- OPEN -->
+	<target name="open" description="Opens the main swf in a browser from the local web server">
+		<exec executable="Open">
+			<arg value="${URL}" />
+		</exec>
+	</target>
+	
+	<!-- VIEW -->
+	<target name="view" description="Runs project" depends="clean,copy_rsls,wrapper,compile,deploy,open"></target>
+	
+	<!-- =================================
+	      target: Macrodefs
+	     ================================= -->
+	<!-- =================================
+      target: mxml-compile
+		get rid of duplicate code
+     ================================= -->
+	<macrodef name="mxml-compile">
+		<attribute name="inputfile" />
+		<attribute name="outputfile" />
+		<attribute name="locale" default="${LOCALE}" />
+		<attribute name="static-rsls" default="false" />
+		<attribute name="accessible" default="true" />
+		<attribute name="debug" default="true" />
+		<attribute name="fork" default="true" />
+		
+		<sequential>
+			<mxmlc file="@{inputfile}" output="@{outputfile}" locale="@{locale}" static-rsls="@{static-rsls}" accessible="@{accessible}" debug="@{debug}" fork="@{fork}">
+				<source-path path-element="${SOURCE_DIR}" />
+				<library-path dir="${LIBS_DIR}" includes="*" append="true" />
+				<library-path dir="${EXTERNAL_LIBS}" includes="*" append="true" />
+			</mxmlc>
+		</sequential>
+	</macrodef>
+	
+</project>
