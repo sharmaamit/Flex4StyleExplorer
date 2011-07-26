@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
-			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   minWidth="955"
+			   minHeight="600">
+			   
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	
+	<s:layout>
+		<s:VerticalLayout verticalAlign="middle"
+						  horizontalAlign="center"/>
+	</s:layout>
+
 	<fx:Script>
 		<![CDATA[
+			import mx.events.ColorPickerEvent;
+			
+			private var _fileRef:FileReference
+			
+			public function get fileRef():FileReference
+			{
+				if (!_fileRef)
+				{
+					_fileRef = new FileReference();
+				}
+				return _fileRef;
+			}
+
+			private function exportCSS():void
+			{
+				fileRef.save(fileContent.text, "StyleOutput.css");
+			}
+			
+			protected function sliderChangeHandler(event:Event):void
+			{
+				testButton.setStyle("cornerRadius", cornerRadiusSlider.value);
+			}
+			
+			protected function colorpickerChangeHandler(event:ColorPickerEvent):void
+
+			{
+
+				setStyle("chromeColor",colorPicker.selectedColor);
+			}
+			
 		]]>
 	</fx:Script>
 	
 </s:Application>
+
