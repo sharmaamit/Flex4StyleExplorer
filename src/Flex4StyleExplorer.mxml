@@ -13,6 +13,8 @@
 		<![CDATA[
 			import mx.events.ColorPickerEvent;
 			
+			import xd.stylesploder.parser.InheritanceParser;
+			
 			private var _fileRef:FileReference
 			
 			public function get fileRef():FileReference
@@ -39,12 +41,23 @@
 				setStyle("chromeColor",colorPicker.selectedColor);
 			}
 			
+			protected function handleParseClick():void
+			{
+				var p : InheritanceParser = new InheritanceParser();
+			}
+			
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
+	<s:Button label="Parse Button" click="handleParseClick()"/>
+	<s:Line width="100%">
+		<s:stroke>
+			<s:SolidColorStroke color="0x000000"/>
+		</s:stroke>
+	</s:Line>
 	<s:Button id="testButton"/>
 	
 	<s:HSlider id="cornerRadiusSlider"
