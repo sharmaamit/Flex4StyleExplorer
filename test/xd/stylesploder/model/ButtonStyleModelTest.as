@@ -13,15 +13,19 @@ package xd.stylesploder.model
 {
   import org.flexunit.assertThat;
   import org.hamcrest.object.equalTo;
-
-  public class GlobalStyleModelTest
+  import flash.net.getClassByAlias;
+  import avmplus.getQualifiedClassName;
+  import spark.components.Button;
+  
+  public class ButtonStyleModelTest
   {
     private var _instance:StyleModel;
+    private var componentName:String;
     
     [Before]
     public function setUp():void
     {
-      _instance = new GlobalStyleModel();
+      _instance = new ButtonStyleModel();
     }
     
     [After]
@@ -30,10 +34,10 @@ package xd.stylesploder.model
       _instance = null;
     }
     
-    [Test(description="expected element name is Global")]
-    public function testElementNameIsGlobal():void
+    [Test(description="Expected name")]
+    public function expectedNameIsButton():void
     {
-      assertThat(_instance.cssElementName, equalTo("Global"));
+      assertThat(_instance.cssElementName, equalTo("Button"));
     }
     
     [Test(description="namespace is spark")]
@@ -41,6 +45,5 @@ package xd.stylesploder.model
     {
       assertThat(_instance.cssNamespace, equalTo(StyleModelConstants.SPARK_NAMESPACE));
     }
-
   }
 }
