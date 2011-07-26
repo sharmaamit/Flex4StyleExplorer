@@ -17,6 +17,7 @@
   <applications>
     <application path="Flex4StyleExplorer.mxml"/>
     <application path="TestRunner.mxml"/>
+    <application path="assets_runtime/components/Application.as"/>
   </applications>
   <modules/>
   <buildCSSFiles/>
