@@ -13,8 +13,8 @@ package xd.stylesploder.model
 {
   public interface StyleModel
   {
-     function get modifiedStyles:Vector<PropertySet>;
-     function get cssNamespace:String;
-     function get cssElementName:String;
+     function get modifiedStyles():Array;
+     function get cssNamespace():String;
+     function get cssElementName():String;
   }
 }
