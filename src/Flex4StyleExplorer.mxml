@@ -27,7 +27,6 @@
 			private function exportCSS():void
 			{
 				fileRef.save(fileContent.text, "StyleOutput.css");
-				export
 			}
 			
 			protected function sliderChangeHandler(event:Event):void
