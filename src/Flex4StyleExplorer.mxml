@@ -8,7 +8,7 @@
 		<s:VerticalLayout verticalAlign="middle"
 						  horizontalAlign="center"/>
 	</s:layout>
-
+	
 	<fx:Script>
 		<![CDATA[
 			import mx.events.ColorPickerEvent;
@@ -23,7 +23,7 @@
 				}
 				return _fileRef;
 			}
-
+			
 			private function exportCSS():void
 			{
 				fileRef.save(fileContent.text, "StyleOutput.css");
@@ -41,7 +41,7 @@
 			
 		]]>
 	</fx:Script>
-
+	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -58,5 +58,5 @@
 	<s:Button id="export"
 			  label="Save"
 			  click="exportCSS()"/>
-
+	
 </s:Application>
