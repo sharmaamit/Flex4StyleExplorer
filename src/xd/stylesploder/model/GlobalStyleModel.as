@@ -12,10 +12,22 @@
 package xd.stylesploder.model
 {
 
-  public interface StyleModel
+  public class GlobalStyleModel implements StyleModel
   {
-    function get cssElementName():String;
-    function get cssNamespace():String;
-    function get modifiedStyles():Array;
+
+    public function get cssElementName():String
+    {
+      return "Global";
+    }
+
+    public function get cssNamespace():String
+    {
+      return "s"
+    }
+
+    public function get modifiedStyles():Array
+    {
+      return null;
+    }
   }
 }

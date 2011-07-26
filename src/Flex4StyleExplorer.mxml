@@ -4,6 +4,11 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   minWidth="955"
 			   minHeight="600">
+			   
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
 	<s:layout>
 		<s:VerticalLayout verticalAlign="middle"
 						  horizontalAlign="center"/>
@@ -35,28 +40,14 @@
 			}
 			
 			protected function colorpickerChangeHandler(event:ColorPickerEvent):void
+
 			{
+
 				setStyle("chromeColor",colorPicker.selectedColor);
 			}
 			
 		]]>
 	</fx:Script>
-
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-	<s:Button id="testButton"/>
 	
-	<s:HSlider id="cornerRadiusSlider"
-			   maximum="100"
-			   minimum="0"
-			   change="sliderChangeHandler(event)"/>
-	<mx:ColorPicker id="colorPicker" change="colorpickerChangeHandler(event)"/>
-	
-	<s:TextInput id="fileContent"/>
-	
-	<s:Button id="export"
-			  label="Save"
-			  click="exportCSS()"/>
-
 </s:Application>
+
