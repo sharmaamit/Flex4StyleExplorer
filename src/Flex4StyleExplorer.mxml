@@ -21,6 +21,8 @@
 			{
 				setStyle("chromeColor",colorPicker.selectedColor);
 				testButton.setStyle("chromeColor",colorPicker.selectedColor);
+				
+				
 			}
 			
 		]]>
