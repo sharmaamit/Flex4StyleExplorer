@@ -1,4 +1,8 @@
+.actionScriptProperties
 bin/*
 bin-debug/*
 bin-debug/Flex4StyleExplorer.swf
+<<<<<<< HEAD
 .actionScriptProperties
+=======
+>>>>>>> ba961987fcb0cd19d956459650ba0064c7ade1b6
