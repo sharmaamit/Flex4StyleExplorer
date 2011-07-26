@@ -12,6 +12,24 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.ColorPickerEvent;
+			
+			private var _fileRef:FileReference
+			
+			public function get fileRef():FileReference
+			{
+				if (!_fileRef)
+				{
+					_fileRef = new FileReference();
+				}
+				return _fileRef;
+			}
+
+			private function exportCSS():void
+			{
+				fileRef.save(fileContent.text, "StyleOutput.css");
+				export
+			}
+			
 			protected function sliderChangeHandler(event:Event):void
 			{
 				testButton.setStyle("cornerRadius", cornerRadiusSlider.value);
@@ -44,4 +62,11 @@
 			   minimum="0"
 			   change="sliderChangeHandler(event)"/>
 	<mx:ColorPicker id="colorPicker" change="colorpickerChangeHandler(event)"/>
+	
+	<s:TextInput id="fileContent"/>
+	
+	<s:Button id="export"
+			  label="Save"
+			  click="exportCSS()"/>
+
 </s:Application>
