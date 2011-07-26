@@ -15,6 +15,7 @@ package xd.stylesploder.model
   {
     public static const SPARK_NAMESPACE:String = "s";
     public static const NAMESPACE_DELIMITER:String ="|";
+    public static const PROPERTY_DELIMITER:String =";";
     public static const PROPERTY_ASSIGNMENT:String = ":";
     public static const PROPETIES_BLOCK_START:String = "{";
     public static const PROPETIES_BLOCK_END:String = "}";

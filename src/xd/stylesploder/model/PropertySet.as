@@ -13,9 +13,9 @@ package xd.stylesploder.model
 {
   public interface PropertySet
   {
-    function get property:String;
-    function set property:String;
-    function get value:String;
-    function get value:String;
+    function get property():String;
+    function set property(value:String):void;
+    function get value():String;
+    function set value(value:String):void;
   }
 }
