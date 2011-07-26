@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!--ant-->
 <project name="Flex 4 Style Explorer" default="view" basedir=".">
 
-	<!-- Created by Kristofer Joseph on 2011-07-20. -->
+	<!-- Created by Kristofer Joseph on 2011-07-26. -->
 	<!-- Copyright (c) 2011 Adobe Systems Incorporated. All rights reserved. -->
 	
 	<!-- setup environment before reading properties -->

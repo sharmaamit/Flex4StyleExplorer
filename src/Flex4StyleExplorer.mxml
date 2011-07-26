@@ -4,59 +4,145 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   minWidth="955"
 			   minHeight="600">
+
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
 	<s:layout>
-		<s:VerticalLayout verticalAlign="middle"
-						  horizontalAlign="center"/>
+		<s:VerticalLayout gap="0"/>
 	</s:layout>
 	
+	<s:Group id="header" width="100%"
+			 height="75">
+		<s:Rect width="100%"
+				height="100%">
+			<s:fill>
+				<s:LinearGradient rotation="90">
+					<s:GradientEntry color="#3a3a3a"/>
+					<s:GradientEntry color="#303030"/>
+				</s:LinearGradient>
+			</s:fill>
+		</s:Rect>
+
+		<s:Label text="FLEX 4 STYLESPLODER"
+				 fontSize="34"
+				 color="#FFFFFF"
+				 top="20"
+				 left="20">
+			<s:filters>
+				<s:DropShadowFilter angle="270"
+									distance="2"
+									blurX="1"
+									blurY="1"
+									color="#000000"/>
+			</s:filters>
+		</s:Label>
+	</s:Group>
+	
+	<s:HGroup width="100%" height="100%" gap="0">
+		<s:Group id="sidebar" width="33%" height="100%">
+			<s:Rect width="100%" height="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="#999999"/>
+				</s:stroke>
+			</s:Rect>
+		</s:Group>
+		
+		<s:Group id="controls" width="33%" height="100%">
+			<s:Rect width="100%" height="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="#999999"/>
+				</s:stroke>
+			</s:Rect>
+			<s:VGroup>
+				<s:Button id="testButton"/>
+				
+				<s:HSlider id="cornerRadiusSlider"
+						   maximum="100"
+						   minimum="0"
+						   change="sliderChangeHandler(event)"/>
+				
+				<mx:ColorPicker id="colorPicker"
+								change="colorpickerChangeHandler(event)"/>
+				
+				<s:TextInput id="fileContent"/>
+				
+				<s:Button id="export"
+						  label="Save"
+						  click="exportCSS()"/>
+				
+				<s:Button id="parseButton" label="Parse" click="handleParseClick()"/>
+			</s:VGroup>
+		</s:Group>
+		
+		<s:Group id="output">
+			<s:Rect width="100%" height="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="#999999"/>
+				</s:stroke>
+			</s:Rect>
+		</s:Group>
+
+	</s:HGroup>
+
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		
+		@font-face 
+		{
+			src: url("assets/fonts/AdobeCleanUI-Bold.otf");
+			fontFamily: "Clean";
+			embedAsCFF: true;
+		}
+		
+		s|Application
+		{
+			fontFamily: "Clean";
+		}
+		
+	</fx:Style>
+
 	<fx:Script>
 		<![CDATA[
 			import mx.events.ColorPickerEvent;
-			
+
+			import xd.stylesploder.parser.InheritanceParser;
+
 			private var _fileRef:FileReference
-			
+
 			public function get fileRef():FileReference
 			{
 				if (!_fileRef)
 				{
-					_fileRef = new FileReference();
+					_fileRef=new FileReference();
 				}
 				return _fileRef;
 			}
-			
+
 			private function exportCSS():void
 			{
 				fileRef.save(fileContent.text, "StyleOutput.css");
 			}
-			
+
 			protected function sliderChangeHandler(event:Event):void
 			{
 				testButton.setStyle("cornerRadius", cornerRadiusSlider.value);
 			}
-			
+
 			protected function colorpickerChangeHandler(event:ColorPickerEvent):void
 			{
-				setStyle("chromeColor",colorPicker.selectedColor);
+				setStyle("chromeColor", colorPicker.selectedColor);
 			}
-			
+
+			protected function handleParseClick():void
+			{
+				var p:InheritanceParser=new InheritanceParser();
+			}
 		]]>
 	</fx:Script>
-	
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-	<s:Button id="testButton"/>
-	
-	<s:HSlider id="cornerRadiusSlider"
-			   maximum="100"
-			   minimum="0"
-			   change="sliderChangeHandler(event)"/>
-	<mx:ColorPicker id="colorPicker" change="colorpickerChangeHandler(event)"/>
-	
-	<s:TextInput id="fileContent"/>
-	
-	<s:Button id="export"
-			  label="Save"
-			  click="exportCSS()"/>
-	
+
+
 </s:Application>
+
