@@ -13,6 +13,7 @@ package xd.stylesploder
 {
   import xd.stylesploder.model.GlobalStyleModelTest;
   import xd.stylesploder.model.ButtonStyleModelTest;
+  import xd.stylesploder.export.StyleModelFormatterTest;
 
   // add your test instances to the list of members below
   // so the suite can run them
@@ -24,5 +25,6 @@ package xd.stylesploder
 //		public var styleModelTest:StyleModelTest;
     public var globalTest:GlobalStyleModelTest
     public var buttonTest:ButtonStyleModelTest
+    public var formatterTest:StyleModelFormatterTest;
 	}
 }
