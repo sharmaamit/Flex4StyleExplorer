@@ -8,14 +8,13 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-
+	
 	<s:layout>
-		<s:VerticalLayout horizontalAlign="center"/>
+		<s:VerticalLayout gap="0"/>
 	</s:layout>
-
-
-	<s:Group width="100%"
-			 height="90">
+	
+	<s:Group id="header" width="100%"
+			 height="75">
 		<s:Rect width="100%"
 				height="100%">
 			<s:fill>
@@ -29,7 +28,7 @@
 		<s:Label text="FLEX 4 STYLESPLODER"
 				 fontSize="34"
 				 color="#FFFFFF"
-				 top="30"
+				 top="20"
 				 left="20">
 			<s:filters>
 				<s:DropShadowFilter angle="270"
@@ -40,24 +39,52 @@
 			</s:filters>
 		</s:Label>
 	</s:Group>
-
-	<s:Button id="testButton"/>
-
-	<s:HSlider id="cornerRadiusSlider"
-			   maximum="100"
-			   minimum="0"
-			   change="sliderChangeHandler(event)"/>
-
-	<mx:ColorPicker id="colorPicker"
-					change="colorpickerChangeHandler(event)"/>
-
-	<s:TextInput id="fileContent"/>
-
-	<s:Button id="export"
-			  label="Save"
-			  click="exportCSS()"/>
 	
-	<s:Button id="parseButton" label="Parse" click="handleParseClick()"/>
+	<s:HGroup width="100%" height="100%" gap="0">
+		<s:Group id="sidebar" width="33%" height="100%">
+			<s:Rect width="100%" height="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="#999999"/>
+				</s:stroke>
+			</s:Rect>
+		</s:Group>
+		
+		<s:Group id="controls" width="33%" height="100%">
+			<s:Rect width="100%" height="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="#999999"/>
+				</s:stroke>
+			</s:Rect>
+			<s:VGroup>
+				<s:Button id="testButton"/>
+				
+				<s:HSlider id="cornerRadiusSlider"
+						   maximum="100"
+						   minimum="0"
+						   change="sliderChangeHandler(event)"/>
+				
+				<mx:ColorPicker id="colorPicker"
+								change="colorpickerChangeHandler(event)"/>
+				
+				<s:TextInput id="fileContent"/>
+				
+				<s:Button id="export"
+						  label="Save"
+						  click="exportCSS()"/>
+				
+				<s:Button id="parseButton" label="Parse" click="handleParseClick()"/>
+			</s:VGroup>
+		</s:Group>
+		
+		<s:Group id="output">
+			<s:Rect width="100%" height="100%">
+				<s:stroke>
+					<s:SolidColorStroke color="#999999"/>
+				</s:stroke>
+			</s:Rect>
+		</s:Group>
+
+	</s:HGroup>
 
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
