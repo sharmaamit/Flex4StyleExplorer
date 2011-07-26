@@ -9,18 +9,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package xd.stylesploder
+package xd.stylesploder.model
 {
-  import xd.stylesploder.model.GlobalStyleModelTest;
-
-  // add your test instances to the list of members below
-  // so the suite can run them
-  
-	[Suite]
-	[RunWith("org.flexunit.runners.Suite")]
-	public class StylesploderTestSuite
-	{
-//		public var styleModelTest:StyleModelTest;
-    public var globalTest:GlobalStyleModelTest
-	}
+  public class StyleModelConstants
+  {
+    public static const SPARK_NAMESPACE:String = "s";
+    public static const NAMESPACE_DELIMITER:String ="|";
+    public static const PROPERTY_ASSIGNMENT:String = ":";
+    public static const PROPETIES_BLOCK_START:String = "{";
+    public static const PROPETIES_BLOCK_END:String = "}";
+  }
 }
