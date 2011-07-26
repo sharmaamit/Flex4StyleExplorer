@@ -1,37 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
-			   xmlns:s="library://ns.adobe.com/flex/spark"
-			   xmlns:mx="library://ns.adobe.com/flex/mx"
-			   minWidth="955"
-			   minHeight="600">
-	<s:layout>
-		<s:VerticalLayout verticalAlign="middle"
-						  horizontalAlign="center"/>
-	</s:layout>
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ADOBE SYSTEMS INCORPORATED
+//  Copyright 2008 Adobe Systems Incorporated
+//  All Rights Reserved.
+//
+//  NOTICE: Adobe permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+-->
 
-	<fx:Script>
-		<![CDATA[
-			protected function sliderChangeHandler(event:Event):void
-			{
-				trace(cornerRadiusSlider.value);
-				testButton.setStyle("cornerRadius", cornerRadiusSlider.value);
-			}
-		]]>
-	</fx:Script>
+<s:Application 
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:mx="library://ns.adobe.com/flex/mx"
+  xmlns:s="library://ns.adobe.com/flex/spark"
+  minHeight="600" minWidth="955">
+  <s:layout>
+    <s:VerticalLayout 
+      horizontalAlign="center" verticalAlign="middle"/>
+  </s:layout>
 
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-	<s:Button id="testButton"
-			  accentColor="#00FFFF"
-			  chromeColor="#e1e1e1"
-			  color="#333333"
-			  cornerRadius="3"
-			  errorColor="#33dddd"
-			  focusAlpha="1.0"
-			  focusColor="#00DDDD"/>
-	<s:HSlider id="cornerRadiusSlider"
-			   maximum="100"
-			   minimum="0"
-			   change="sliderChangeHandler(event)"/>
+  <fx:Script>
+    <![CDATA[
+      private var _fileRef:FileReference
+
+      public function get fileRef():FileReference
+      {
+        if (!_fileRef)
+        {
+          _fileRef = new FileReference();
+        }
+        return _fileRef;
+      }
+
+      protected function sliderChangeHandler(event:Event):void
+      {
+        trace(cornerRadiusSlider.value);
+        testButton.setStyle("cornerRadius", cornerRadiusSlider.value);
+      }
+
+      
+      private function exportCSS():void
+      {
+        fileRef.save(fileContent.text, "StyleOutput.css");
+        export
+      }
+    ]]>
+  </fx:Script>
+
+  <s:Button id="testButton"
+    color="#333333" cornerRadius="3" errorColor="#33dddd" focusAlpha="1.0"
+    accentColor="#00FFFF" chromeColor="#e1e1e1" focusColor="#00DDDD"/>
+
+  <s:HSlider id="cornerRadiusSlider"
+    maximum="100" minimum="0"
+    change="sliderChangeHandler(event)"/>
+
+  <s:TextInput id="fileContent"/>
+
+  <s:Button id="export"
+    label="Save"
+    click="exportCSS()"/>
+
 </s:Application>
