@@ -11,7 +11,7 @@ package xd.stylesploder.factory
 
 	public class ControlFactory
 	{
-		public static function getControl(type:String,format:String,enumeration:Array,minValue:Number,maxValue:Number):DisplayObject
+		public function getControl(type:String,format:String,enumeration:Array=null,minValue:Number=NaN,maxValue:Number=NaN):DisplayObject
 		{
 			if (type=="uint" && format=="Color") 
 			{
@@ -28,7 +28,7 @@ package xd.stylesploder.factory
 			{
 				return new NumericStepper();
 			}
-			else if (type="String" && enumeration)
+			else if (type=="String" && enumeration)
 			{
 				var box:ComboBox = new ComboBox();
 				box.dataProvider=new ArrayCollection(enumeration);
@@ -38,9 +38,10 @@ package xd.stylesploder.factory
 			{
 				//TODO: File browser???
 				trace("WE MUST HAVE AN ICON OR SOME SUCH CRAZY TALK");
+				return null;
 			}
 			
-			
+			return null;
 		}
 	}
 }

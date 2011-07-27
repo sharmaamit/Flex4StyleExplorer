@@ -1,5 +1,9 @@
 package xd.stylesploder.factory
-{
+{	
+	import flash.utils.getQualifiedClassName;
+	
+	import org.flexunit.asserts.assertEquals;
+
 	public class ControlFactoryTest
 	{
 		private var factory:ControlFactory;
@@ -16,6 +20,10 @@ package xd.stylesploder.factory
 			factory=null;
 		}
 		
-		
+		[Test(description="Tests that given the correct input ControlFactory returns a colorPicker instance")]
+		public function shouldReturnColorPicker():void
+		{
+			assertEquals("mx.controls::ColorPicker", getQualifiedClassName(factory.getControl("uint","Color")));
+		}
 	}
 }

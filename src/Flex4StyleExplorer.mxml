@@ -144,16 +144,19 @@
 						   change="sliderChangeHandler(event)"/>
 
 				<mx:ColorPicker id="colorPicker"
+								chromeColor="#ffffff"
 								change="colorpickerChangeHandler(event)"/>
 
 				<s:TextInput id="fileContent"/>
 
 				<s:Button id="export"
 						  label="Save"
+						  chromeColor="#ffffff"
 						  click="exportCSS()"/>
 
 				<s:Button id="parseButton"
 						  label="Parse"
+						  chromeColor="#ffffff"
 						  click="handleParseClick()"/>
 			</s:VGroup>
 		</s:Group>
@@ -254,9 +257,9 @@
 			import mx.events.FlexEvent;
 
 			import spark.events.IndexChangeEvent;
-			
+
 			import mx.events.ColorPickerEvent;
-			
+
 			import xd.stylesploder.parser.InheritanceParser;
 
 			[Embed(source="assets/data/components.xml", mimeType="application/octet-stream")]
@@ -264,27 +267,27 @@
 
 			[Bindable]
 			public var componentData:XMLListCollection;
-			
+
 			private var changes:Array;
-			
+
 			private function exportCSS():void
 			{
 				makeFakeListOfChangesSoThatSomethingCoolHappens();
 				CSSWriter.exportModelsAsCSS(changes);
 			}
-			
+
 			private function makeFakeListOfChangesSoThatSomethingCoolHappens():void
 			{
-				changes = new Array(); 
-				var fakeModelOne:MockStyleModel = new MockStyleModel("One");
+				changes=new Array();
+				var fakeModelOne:MockStyleModel=new MockStyleModel("One");
 				fakeModelOne.populate();
 				changes.push(fakeModelOne);
-				
-				var fakeModelTwo:MockStyleModel = new MockStyleModel("Two");
+
+				var fakeModelTwo:MockStyleModel=new MockStyleModel("Two");
 				fakeModelTwo.populate();
 				changes.push(fakeModelTwo);
 			}
-			
+
 
 			private var _fileRef:FileReference
 

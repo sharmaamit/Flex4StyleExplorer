@@ -13,6 +13,7 @@ package xd.stylesploder
 {
 
   import xd.stylesploder.export.StyleModelFormatterTest;
+  import xd.stylesploder.factory.ControlFactoryTest;
   import xd.stylesploder.model.ButtonStyleModelTest;
   import xd.stylesploder.model.GlobalStyleModelTest;
   import xd.stylesploder.model.SparkStyleModelBaseTest;
@@ -27,5 +28,6 @@ package xd.stylesploder
     public var formatterTest:StyleModelFormatterTest;
     public var globalTest:GlobalStyleModelTest
     public var styleModelBaseTest:SparkStyleModelBaseTest;
+	public var controlFactoryTest:ControlFactoryTest;
   }
 }
