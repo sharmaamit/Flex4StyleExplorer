@@ -11,20 +11,21 @@
 
 package xd.stylesploder
 {
-  import xd.stylesploder.model.GlobalStyleModelTest;
-  import xd.stylesploder.model.ButtonStyleModelTest;
+
   import xd.stylesploder.export.StyleModelFormatterTest;
+  import xd.stylesploder.model.ButtonStyleModelTest;
+  import xd.stylesploder.model.GlobalStyleModelTest;
+  import xd.stylesploder.model.SparkStyleModelBaseTest;
 
   // add your test instances to the list of members below
   // so the suite can run them
-  
-	[Suite]
-	[RunWith("org.flexunit.runners.Suite")]
-	public class StylesploderTestSuite
-	{
-//		public var styleModelTest:StyleModelTest;
-    public var globalTest:GlobalStyleModelTest
+  [Suite]
+  [RunWith("org.flexunit.runners.Suite")]
+  public class StylesploderTestSuite
+  {
     public var buttonTest:ButtonStyleModelTest
     public var formatterTest:StyleModelFormatterTest;
-	}
+    public var globalTest:GlobalStyleModelTest
+    public var styleModelBaseTest:SparkStyleModelBaseTest;
+  }
 }

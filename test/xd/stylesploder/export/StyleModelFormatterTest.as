@@ -21,7 +21,7 @@ package xd.stylesploder.export
 
   public class StyleModelFormatterTest
   {
-    private var _instance:MockStyleModel;
+    private var _instance:StyleModel;
 
     private var componentName:String;
 
