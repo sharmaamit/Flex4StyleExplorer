@@ -3,6 +3,7 @@ package xd.stylesploder.factory
 	import flash.utils.getQualifiedClassName;
 	
 	import org.flexunit.asserts.assertEquals;
+	
 
 	public class ControlFactoryTest
 	{
@@ -25,5 +26,13 @@ package xd.stylesploder.factory
 		{
 			assertEquals("mx.controls::ColorPicker", getQualifiedClassName(factory.getControl("uint","Color")));
 		}
+		
+		[Test(description="Tests that given the correct input ControlFactory returns a HSlider instance")]
+		public function shouldReturnHSlider():void
+		{
+			assertEquals("spark.components::HSlider", getQualifiedClassName(factory.getControl("Number",null,null,0.0,1.0)));
+		}
+		
+		
 	}
 }

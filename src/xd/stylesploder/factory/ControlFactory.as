@@ -4,20 +4,20 @@ package xd.stylesploder.factory
 	
 	import mx.collections.ArrayCollection;
 	import mx.controls.ColorPicker;
-	import mx.controls.HSlider;
 	
 	import spark.components.ComboBox;
+	import spark.components.HSlider;
 	import spark.components.NumericStepper;
 
 	public class ControlFactory
 	{
-		public function getControl(type:String,format:String,enumeration:Array=null,minValue:Number=NaN,maxValue:Number=NaN):DisplayObject
+		public function getControl(type:String,format:String=null,enumeration:Array=null,minValue:Number=NaN,maxValue:Number=NaN):DisplayObject
 		{
 			if (type=="uint" && format=="Color") 
 			{
 				return new ColorPicker();
 			}
-			else if (type=="Number" && minValue && maxValue)
+			else if (type=="Number" && !isNaN(minValue) && !isNaN(maxValue)) 
 			{
 				var slider:HSlider = new HSlider();
 				slider.minimum = minValue;
