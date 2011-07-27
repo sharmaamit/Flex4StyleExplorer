@@ -33,6 +33,10 @@ package xd.stylesploder.factory
 			assertEquals("spark.components::HSlider", getQualifiedClassName(factory.getControl("Number",null,null,0.0,1.0)));
 		}
 		
-		
+		[Test(description="Tests that given the correct input ControlFactory returns a NumericStepper instance")]
+		public function shouldReturnNumericStepper():void
+		{
+			assertEquals("spark.components::NumericStepper", getQualifiedClassName(factory.getControl("Number")));
+		}
 	}
 }
