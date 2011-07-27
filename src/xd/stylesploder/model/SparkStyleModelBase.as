@@ -11,14 +11,31 @@
 
 package xd.stylesploder.model
 {
-
-  public class ButtonStyleModel extends SparkStyleModelBase implements StyleModel
+  public class SparkStyleModelBase
   {
     private var _modifiedStyles:Array;
-
-    public function get cssElementName():String
+    
+    public function addModifiedStyle(value:PropertySet):void
     {
-      return "Button"
+      if (value)
+      {
+        modifiedStyles.push(value);
+      }
     }
+
+    public function get cssNamespace():String
+    {
+      return StyleModelConstants.SPARK_NAMESPACE;
+    }
+    
+    public function get modifiedStyles():Array
+    {
+      if (!_modifiedStyles)
+      {
+        _modifiedStyles = new Array();
+      }
+      return _modifiedStyles;
+    }
+
   }
 }

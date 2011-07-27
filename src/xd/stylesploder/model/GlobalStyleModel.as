@@ -12,7 +12,7 @@
 package xd.stylesploder.model
 {
 
-  public class GlobalStyleModel implements StyleModel
+  public class GlobalStyleModel extends SparkStyleModelBase implements StyleModel
   {
 
     public function get cssElementName():String
@@ -20,14 +20,5 @@ package xd.stylesploder.model
       return "Global";
     }
 
-    public function get cssNamespace():String
-    {
-      return "s"
-    }
-
-    public function get modifiedStyles():Array
-    {
-      return null;
-    }
   }
 }

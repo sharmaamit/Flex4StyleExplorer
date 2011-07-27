@@ -17,5 +17,6 @@ package xd.stylesploder.model
     function get cssElementName():String;
     function get cssNamespace():String;
     function get modifiedStyles():Array;
+    function addModifiedStyle(value:PropertySet):void;
   }
 }
