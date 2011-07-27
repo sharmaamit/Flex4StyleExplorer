@@ -1,281 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
-			   xmlns:s="library://ns.adobe.com/flex/spark"
-			   xmlns:mx="library://ns.adobe.com/flex/mx"
-			   minWidth="955"
-			   minHeight="600"
-			   backgroundColor="#303030">
-
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-
-	<s:layout>
-		<s:VerticalLayout gap="0"/>
-	</s:layout>
-
-	<s:Group id="header"
-			 width="100%"
-			 height="60">
-		<s:Rect width="100%"
-				height="100%">
-			<s:fill>
-				<s:LinearGradient rotation="90">
-					<s:GradientEntry color="#3a3a3a"/>
-					<s:GradientEntry color="#303030"/>
-				</s:LinearGradient>
-			</s:fill>
-		</s:Rect>
-
-		<s:Label text="FLEX 4 STYLESPLODER"
-				 fontSize="24"
-				 color="#FFFFFF"
-				 top="20"
-				 left="20">
-			<s:filters>
-				<s:DropShadowFilter angle="270"
-									distance="2"
-									blurX="1"
-									blurY="1"
-									color="#000000"/>
-			</s:filters>
-		</s:Label>
-	</s:Group>
-
-
-	<mx:HDividedBox width="100%"
-					height="100%">
-
-		<s:Group id="sidebar"
-				 width="100%"
-				 height="100%">
-
-			<s:Rect width="100%"
-					height="100%">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-
-			<s:VGroup width="100%"
-					  height="100%"
-					  gap="0">
-				<s:Group width="100%">
-					<s:Rect width="100%"
-							height="30">
-						<s:fill>
-							<s:LinearGradient rotation="90">
-								<s:GradientEntry color="#dddddd"/>
-								<s:GradientEntry color="#cccccc"/>
-							</s:LinearGradient>
-						</s:fill>
-					</s:Rect>
-
-					<s:Label left="20"
-							 top="10"
-							 text="Components">
-						<s:filters>
-							<s:DropShadowFilter angle="90"
-												distance="1"
-												blurX="1"
-												blurY="1"
-												color="#ffffff"/>
-						</s:filters>
-					</s:Label>
-
-				</s:Group>
-
-				<s:List width="100%"
-						height="100%"
-						borderAlpha="0">
-					<s:ArrayCollection>
-						<fx:Array>
-							<fx:String>Button</fx:String>
-						</fx:Array>
-					</s:ArrayCollection>
-				</s:List>
-			</s:VGroup>
-
-		</s:Group>
-
-		<s:Group id="controls"
-				 width="100%"
-				 height="100%">
-
-			<s:Rect width="100%"
-					height="100%">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-
-			<s:VGroup width="100%"
-					  height="100%"
-					  gap="0">
-				<s:Group width="100%">
-					<s:Rect width="100%"
-							height="30">
-						<s:fill>
-							<s:LinearGradient rotation="90">
-								<s:GradientEntry color="#dddddd"/>
-								<s:GradientEntry color="#cccccc"/>
-							</s:LinearGradient>
-						</s:fill>
-					</s:Rect>
-
-					<s:Label left="20"
-							 top="10"
-							 text="Controls">
-						<s:filters>
-							<s:DropShadowFilter angle="90"
-												distance="1"
-												blurX="1"
-												blurY="1"
-												color="#ffffff"/>
-						</s:filters>
-					</s:Label>
-
-				</s:Group>
-				<s:Button id="testButton"/>
-
-				<s:HSlider id="cornerRadiusSlider"
-						   maximum="100"
-						   minimum="0"
-						   change="sliderChangeHandler(event)"/>
-
-				<mx:ColorPicker id="colorPicker"
-								change="colorpickerChangeHandler(event)"/>
-
-				<s:TextInput id="fileContent"/>
-
-				<s:Button id="export"
-						  label="Save"
-						  click="exportCSS()"/>
-
-				<s:Button id="parseButton"
-						  label="Parse"
-						  click="handleParseClick()"/>
-			</s:VGroup>
-		</s:Group>
-
-		<s:Group id="output"
-				 width="100%"
-				 height="100%">
-
-			<s:Rect width="100%"
-					height="100%">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-
-			<s:VGroup width="100%"
-					  height="100%"
-					  gap="0">
-				<s:Group width="100%">
-					<s:Rect width="100%"
-							height="30">
-						<s:fill>
-							<s:LinearGradient rotation="90">
-								<s:GradientEntry color="#dddddd"/>
-								<s:GradientEntry color="#cccccc"/>
-							</s:LinearGradient>
-						</s:fill>
-					</s:Rect>
-
-					<s:Label left="20"
-							 top="10"
-							 text="Output">
-						<s:filters>
-							<s:DropShadowFilter angle="90"
-												distance="1"
-												blurX="1"
-												blurY="1"
-												color="#ffffff"/>
-						</s:filters>
-					</s:Label>
-				</s:Group>
-				<s:TextArea width="100%"
-							height="100%"
-							borderAlpha="0"/>
-			</s:VGroup>
-
-		</s:Group>
-
-	</mx:HDividedBox>
-
-	<s:Group id="footer"
-			 width="100%"
-			 height="50">
-		<s:Rect width="100%"
-				height="100%">
-			<s:fill>
-				<s:LinearGradient rotation="90">
-					<s:GradientEntry color="#b5b5b5"/>
-					<s:GradientEntry color="#545454"/>
-				</s:LinearGradient>
-			</s:fill>
-		</s:Rect>
-
-	</s:Group>
-
-	<fx:Style>
-		@namespace s "library://ns.adobe.com/flex/spark";
-		@namespace mx "library://ns.adobe.com/flex/mx";
-		
-		@font-face 
-		{
-			src: url("assets/fonts/AdobeCleanUI-Bold.otf");
-			fontFamily: "Clean";
-			embedAsCFF: true;
-		}
-		
-		s|Application
-		{
-			fontFamily: "Clean";
-		}
-		
-		mx|HDividedBox
-		{
-			horizontal-gap: 1;
-			divider-affordance: 1;
-			divider-thickness: 1;
-		}
-		
-		
-	</fx:Style>
-
-	<fx:Script>
-		<![CDATA[
-      import xd.stylesploder.model.MockStyleModel;
-      import xd.stylesploder.model.StyleModel;
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+               minWidth="955"
+               minHeight="600"
+               backgroundColor="#303030"
+               creationComplete="creationCompleteHandler(event)">
+  
+  <fx:Declarations>
+    <!-- Place non-visual elements (e.g., services, value objects) here -->
+  </fx:Declarations>
+  
+  <s:layout>
+    <s:VerticalLayout gap="0"/>
+  </s:layout>
+  
+  <s:Group id="header"
+           width="100%"
+           height="60">
+    <s:Rect width="100%"
+            height="100%">
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="#3a3a3a"/>
+          <s:GradientEntry color="#303030"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Rect>
+    
+    <s:Label text="FLEX 4 STYLESPLODER"
+             fontSize="24"
+             color="#FFFFFF"
+             top="20"
+             left="20">
+      <s:filters>
+        <s:DropShadowFilter angle="270"
+                            distance="2"
+                            blurX="1"
+                            blurY="1"
+                            color="#000000"/>
+      </s:filters>
+    </s:Label>
+  </s:Group>
+  
+  
+  <mx:HDividedBox width="100%"
+                  height="100%">
+    
+    <s:Group id="sidebar"
+             width="100%"
+             height="100%">
+      
+      <s:Rect width="100%"
+              height="100%">
+        <s:fill>
+          <s:SolidColor color="#ffffff"/>
+        </s:fill>
+      </s:Rect>
+      
+      <s:VGroup width="100%"
+                height="100%"
+                gap="0">
+        <s:Group width="100%">
+          <s:Rect width="100%"
+                  height="30">
+            <s:fill>
+              <s:LinearGradient rotation="90">
+                <s:GradientEntry color="#dddddd"/>
+                <s:GradientEntry color="#cccccc"/>
+              </s:LinearGradient>
+            </s:fill>
+          </s:Rect>
+          
+          <s:Label left="20"
+                   top="10"
+                   text="Components">
+            <s:filters>
+              <s:DropShadowFilter angle="90"
+                                  distance="1"
+                                  blurX="1"
+                                  blurY="1"
+                                  color="#ffffff"/>
+            </s:filters>
+          </s:Label>
+          
+        </s:Group>
+        
+        <s:List width="100%"
+                height="100%"
+                borderAlpha="0"
+                dataProvider="{componentData}"
+                >
+        </s:List>
+      </s:VGroup>
+      
+    </s:Group>
+    
+    <s:Group id="controls"
+             width="100%"
+             height="100%">
+      
+      <s:Rect width="100%"
+              height="100%">
+        <s:fill>
+          <s:SolidColor color="#ffffff"/>
+        </s:fill>
+      </s:Rect>
+      
+      <s:VGroup width="100%"
+                height="100%"
+                gap="0">
+        <s:Group width="100%">
+          <s:Rect width="100%"
+                  height="30">
+            <s:fill>
+              <s:LinearGradient rotation="90">
+                <s:GradientEntry color="#dddddd"/>
+                <s:GradientEntry color="#cccccc"/>
+              </s:LinearGradient>
+            </s:fill>
+          </s:Rect>
+          
+          <s:Label left="20"
+                   top="10"
+                   text="Controls">
+            <s:filters>
+              <s:DropShadowFilter angle="90"
+                                  distance="1"
+                                  blurX="1"
+                                  blurY="1"
+                                  color="#ffffff"/>
+            </s:filters>
+          </s:Label>
+          
+        </s:Group>
+        <s:Button id="testButton"/>
+        
+        <s:HSlider id="cornerRadiusSlider"
+                   maximum="100"
+                   minimum="0"
+                   change="sliderChangeHandler(event)"/>
+        
+        <mx:ColorPicker id="colorPicker"
+                        change="colorpickerChangeHandler(event)"/>
+        
+        <s:TextInput id="fileContent"/>
+        
+        <s:Button id="export"
+                  label="Save"
+                  click="exportCSS()"/>
+        
+        <s:Button id="parseButton"
+                  label="Parse"
+                  click="handleParseClick()"/>
+      </s:VGroup>
+    </s:Group>
+    
+    <s:Group id="output"
+             width="100%"
+             height="100%">
+      
+      <s:Rect width="100%"
+              height="100%">
+        <s:fill>
+          <s:SolidColor color="#ffffff"/>
+        </s:fill>
+      </s:Rect>
+      
+      <s:VGroup width="100%"
+                height="100%"
+                gap="0">
+        <s:Group width="100%">
+          <s:Rect width="100%"
+                  height="30">
+            <s:fill>
+              <s:LinearGradient rotation="90">
+                <s:GradientEntry color="#dddddd"/>
+                <s:GradientEntry color="#cccccc"/>
+              </s:LinearGradient>
+            </s:fill>
+          </s:Rect>
+          
+          <s:Label left="20"
+                   top="10"
+                   text="Output">
+            <s:filters>
+              <s:DropShadowFilter angle="90"
+                                  distance="1"
+                                  blurX="1"
+                                  blurY="1"
+                                  color="#ffffff"/>
+            </s:filters>
+          </s:Label>
+        </s:Group>
+        <s:TextArea width="100%"
+                    height="100%"
+                    borderAlpha="0"/>
+      </s:VGroup>
+      
+    </s:Group>
+    
+  </mx:HDividedBox>
+  
+  <s:Group id="footer"
+           width="100%"
+           height="50">
+    <s:Rect width="100%"
+            height="100%">
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="#b5b5b5"/>
+          <s:GradientEntry color="#545454"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Rect>
+    
+  </s:Group>
+  
+  
+  <fx:Style>
+    @namespace s "library://ns.adobe.com/flex/spark";
+    @namespace mx "library://ns.adobe.com/flex/mx";
+    
+    @font-face 
+    {
+      src: url("assets/fonts/AdobeCleanUI-Bold.otf");
+      fontFamily: "Clean";
+      embedAsCFF: true;
+    }
+    
+    s|Application
+    {
+      fontFamily: "Clean";
+    }
+    
+    mx|HDividedBox
+    {
+      horizontal-gap: 1;
+      divider-affordance: 1;
+      divider-thickness: 1;
+    }
+    
+    
+  </fx:Style>
+  
+  <fx:Script>
+    <![CDATA[
       import xd.stylesploder.export.CSSWriter;
-			import mx.events.ColorPickerEvent;
-
-			import xd.stylesploder.parser.InheritanceParser;
+      import xd.stylesploder.model.MockStyleModel;
+      import mx.collections.XMLListCollection;
+      import mx.events.FlexEvent;
+      
+      [Embed(source="assets/data/components.xml", mimeType="application/octet-stream")]
+      private var componentXML:Class;
+      
+      [Bindable]
+      public var componentData:XMLListCollection;
       private var changes:Array;
-
-			protected function sliderChangeHandler(event:Event):void
-			{
-				testButton.setStyle("cornerRadius", cornerRadiusSlider.value);
-			}
-
-			protected function colorpickerChangeHandler(event:ColorPickerEvent):void
-			{
-				setStyle("chromeColor", colorPicker.selectedColor);
-			}
-
-			protected function handleParseClick():void
-			{
-				var p:InheritanceParser=new InheritanceParser();
-			}
-
+      
+      import mx.events.ColorPickerEvent;
+      
+      import xd.stylesploder.parser.InheritanceParser;
+      
       private function exportCSS():void
       {
         makeFakeListOfChangesSoThatSomethingCoolHappens();
         CSSWriter.exportModelsAsCSS(changes);
       }
-
+      
       private function makeFakeListOfChangesSoThatSomethingCoolHappens():void
       {
         changes = new Array(); 
@@ -287,10 +279,30 @@
         fakeModelTwo.populate();
         changes.push(fakeModelTwo);
       }
-      //
-		]]>
-	</fx:Script>
-
-
+      
+      protected function sliderChangeHandler(event:Event):void
+      {
+        testButton.setStyle("cornerRadius", cornerRadiusSlider.value);
+      }
+      
+      protected function colorpickerChangeHandler(event:ColorPickerEvent):void
+      {
+        setStyle("chromeColor", colorPicker.selectedColor);
+      }
+      
+      protected function handleParseClick():void
+      {
+        var p:InheritanceParser=new InheritanceParser();
+      }
+      
+      protected function creationCompleteHandler(event:FlexEvent):void
+      {
+        var byteArray:ByteArray = new componentXML();
+        var xml:XML = new XML(byteArray.readUTFBytes(byteArray.length));
+        componentData = new XMLListCollection(xml..name);
+      }
+    ]]>
+  </fx:Script>
+  
+  
 </s:Application>
-
