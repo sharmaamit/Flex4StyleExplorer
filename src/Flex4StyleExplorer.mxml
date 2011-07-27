@@ -247,25 +247,13 @@
 
 	<fx:Script>
 		<![CDATA[
+      import xd.stylesploder.model.MockStyleModel;
+      import xd.stylesploder.model.StyleModel;
+      import xd.stylesploder.export.CSSWriter;
 			import mx.events.ColorPickerEvent;
 
 			import xd.stylesploder.parser.InheritanceParser;
-
-			private var _fileRef:FileReference
-
-			public function get fileRef():FileReference
-			{
-				if (!_fileRef)
-				{
-					_fileRef=new FileReference();
-				}
-				return _fileRef;
-			}
-
-			private function exportCSS():void
-			{
-				fileRef.save(fileContent.text, "StyleOutput.css");
-			}
+      private var changes:Array;
 
 			protected function sliderChangeHandler(event:Event):void
 			{
@@ -281,6 +269,25 @@
 			{
 				var p:InheritanceParser=new InheritanceParser();
 			}
+
+      private function exportCSS():void
+      {
+        makeFakeListOfChangesSoThatSomethingCoolHappens();
+        CSSWriter.exportModelsAsCSS(changes);
+      }
+
+      private function makeFakeListOfChangesSoThatSomethingCoolHappens():void
+      {
+        changes = new Array(); 
+        var fakeModelOne:MockStyleModel = new MockStyleModel("One");
+        fakeModelOne.populate();
+        changes.push(fakeModelOne);
+        
+        var fakeModelTwo:MockStyleModel = new MockStyleModel("Two");
+        fakeModelTwo.populate();
+        changes.push(fakeModelTwo);
+      }
+      //
 		]]>
 	</fx:Script>
 
