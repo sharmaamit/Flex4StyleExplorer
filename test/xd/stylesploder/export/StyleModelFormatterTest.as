@@ -28,18 +28,8 @@ package xd.stylesploder.export
     [Before]
     public function setUp():void
     {
-      _instance = new MockStyleModel();
-
-      var propertyOne:PropertySet = new StylePropertySet();
-      propertyOne.property = MockStyleModel.PROPERTY_ONE_NAME;
-      propertyOne.value = MockStyleModel.PROPERTY_ONE_VALUE;
-
-      var propertyTwo:PropertySet = new StylePropertySet();
-      propertyTwo.property = MockStyleModel.PROPERTY_TWO_NAME;
-      propertyTwo.value = MockStyleModel.PROPERTY_TWO_VALUE;
-
-      _instance.addModifiedStyle(propertyOne);
-      _instance.addModifiedStyle(propertyTwo);
+      _instance = new MockStyleModel("One");
+      MockStyleModel(_instance).populate();
     }
 
     [After]
@@ -54,7 +44,6 @@ package xd.stylesploder.export
       var result:String = StyleModelFormatter.buildExportString(_instance);
       assertThat(result, equalTo(MockStyleModel.EXPECTED_STYLE_OUTPUT));
     }
-
 
     [Test(description = "namespace is mock")]
     public function testThatNamespaceIsMock():void

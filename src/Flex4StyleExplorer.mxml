@@ -248,20 +248,43 @@
 
 	<fx:Script>
 		<![CDATA[
+			import xd.stylesploder.export.CSSWriter;
+			import xd.stylesploder.model.MockStyleModel;
 			import mx.collections.XMLListCollection;
 			import mx.events.FlexEvent;
 
 			import spark.events.IndexChangeEvent;
+			
+			import mx.events.ColorPickerEvent;
+			
+			import xd.stylesploder.parser.InheritanceParser;
 
 			[Embed(source="assets/data/components.xml", mimeType="application/octet-stream")]
 			private var componentXML:Class;
 
 			[Bindable]
 			public var componentData:XMLListCollection;
-
-			import mx.events.ColorPickerEvent;
-
-			import xd.stylesploder.parser.InheritanceParser;
+			
+			private var changes:Array;
+			
+			private function exportCSS():void
+			{
+				makeFakeListOfChangesSoThatSomethingCoolHappens();
+				CSSWriter.exportModelsAsCSS(changes);
+			}
+			
+			private function makeFakeListOfChangesSoThatSomethingCoolHappens():void
+			{
+				changes = new Array(); 
+				var fakeModelOne:MockStyleModel = new MockStyleModel("One");
+				fakeModelOne.populate();
+				changes.push(fakeModelOne);
+				
+				var fakeModelTwo:MockStyleModel = new MockStyleModel("Two");
+				fakeModelTwo.populate();
+				changes.push(fakeModelTwo);
+			}
+			
 
 			private var _fileRef:FileReference
 
@@ -274,10 +297,6 @@
 				return _fileRef;
 			}
 
-			private function exportCSS():void
-			{
-				fileRef.save(fileContent.text, "StyleOutput.css");
-			}
 
 			protected function sliderChangeHandler(event:Event):void
 			{
@@ -311,4 +330,3 @@
 
 
 </s:Application>
-
