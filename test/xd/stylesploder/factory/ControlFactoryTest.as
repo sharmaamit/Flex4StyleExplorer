@@ -38,5 +38,12 @@ package xd.stylesploder.factory
 		{
 			assertEquals("spark.components::NumericStepper", getQualifiedClassName(factory.getControl("Number")));
 		}
+		
+		[Test(description="Tests that given the correct input ControlFactory returns a ComboBox instance")]
+		public function shouldReturnComboBox():void
+		{
+			assertEquals("spark.components::ComboBox", getQualifiedClassName(factory.getControl("String",null,["top,bottom,right,left"])));
+		}
+		
 	}
 }
