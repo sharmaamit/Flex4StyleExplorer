@@ -16,6 +16,8 @@ package xd.stylesploder
   import xd.stylesploder.model.ButtonStyleModelTest;
   import xd.stylesploder.model.GlobalStyleModelTest;
   import xd.stylesploder.model.SparkStyleModelBaseTest;
+  import xd.stylesploder.parser.PropertyParser;
+  import xd.stylesploder.parser.PropertyParserTest;
 
   // add your test instances to the list of members below
   // so the suite can run them
@@ -27,5 +29,6 @@ package xd.stylesploder
     public var formatterTest:StyleModelFormatterTest;
     public var globalTest:GlobalStyleModelTest
     public var styleModelBaseTest:SparkStyleModelBaseTest;
+    public var parserTest:PropertyParserTest;
   }
 }
