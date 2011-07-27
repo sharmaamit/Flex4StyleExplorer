@@ -86,11 +86,13 @@
 
 				</s:Group>
 
-				<s:List width="100%"
+				<s:List id="componentList"
+						width="100%"
 						height="100%"
 						borderAlpha="0"
 						dataProvider="{componentData}"
-						>
+						labelField="name"
+						change="listChangeHandler(event)">
 				</s:List>
 			</s:VGroup>
 
@@ -216,7 +218,7 @@
 		</s:Rect>
 
 	</s:Group>
-	
+
 
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
@@ -248,10 +250,12 @@
 		<![CDATA[
 			import mx.collections.XMLListCollection;
 			import mx.events.FlexEvent;
-			
+
+			import spark.events.IndexChangeEvent;
+
 			[Embed(source="assets/data/components.xml", mimeType="application/octet-stream")]
 			private var componentXML:Class;
-			
+
 			[Bindable]
 			public var componentData:XMLListCollection;
 
@@ -292,9 +296,15 @@
 
 			protected function creationCompleteHandler(event:FlexEvent):void
 			{
-				var byteArray:ByteArray = new componentXML();
-				var xml:XML = new XML(byteArray.readUTFBytes(byteArray.length));
-				componentData = new XMLListCollection(xml..name);
+				var byteArray:ByteArray=new componentXML();
+				var xml:XML=new XML(byteArray.readUTFBytes(byteArray.length));
+				componentData=new XMLListCollection(xml..component);
+			}
+
+			protected function listChangeHandler(event:IndexChangeEvent):void
+			{
+				// TODO Auto-generated method stub
+				trace(componentList.selectedItem);
 			}
 		]]>
 	</fx:Script>
