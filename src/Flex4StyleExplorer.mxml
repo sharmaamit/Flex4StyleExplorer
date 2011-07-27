@@ -4,7 +4,8 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   minWidth="955"
 			   minHeight="600"
-			   backgroundColor="#303030">
+			   backgroundColor="#303030"
+			   creationComplete="creationCompleteHandler(event)">
 
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -87,12 +88,9 @@
 
 				<s:List width="100%"
 						height="100%"
-						borderAlpha="0">
-					<s:ArrayCollection>
-						<fx:Array>
-							<fx:String>Button</fx:String>
-						</fx:Array>
-					</s:ArrayCollection>
+						borderAlpha="0"
+						dataProvider="{componentData}"
+						>
 				</s:List>
 			</s:VGroup>
 
@@ -218,6 +216,7 @@
 		</s:Rect>
 
 	</s:Group>
+	
 
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
@@ -247,6 +246,15 @@
 
 	<fx:Script>
 		<![CDATA[
+			import mx.collections.XMLListCollection;
+			import mx.events.FlexEvent;
+			
+			[Embed(source="assets/data/components.xml", mimeType="application/octet-stream")]
+			private var componentXML:Class;
+			
+			[Bindable]
+			public var componentData:XMLListCollection;
+
 			import mx.events.ColorPickerEvent;
 
 			import xd.stylesploder.parser.InheritanceParser;
@@ -280,6 +288,13 @@
 			protected function handleParseClick():void
 			{
 				var p:InheritanceParser=new InheritanceParser();
+			}
+
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				var byteArray:ByteArray = new componentXML();
+				var xml:XML = new XML(byteArray.readUTFBytes(byteArray.length));
+				componentData = new XMLListCollection(xml..name);
 			}
 		]]>
 	</fx:Script>
