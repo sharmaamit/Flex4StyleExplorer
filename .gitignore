@@ -1,4 +1,6 @@
 .actionScriptProperties
+.project
+.flexProperties
 bin/*
 bin-debug/*
 bin-debug/Flex4StyleExplorer.swf
