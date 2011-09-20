@@ -9,28 +9,25 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package xd.stylesploder
-{
+package xd.stylesploder {
 
-  import xd.stylesploder.export.StyleModelFormatterTest;
-  import xd.stylesploder.factory.ControlFactoryTest;
-  import xd.stylesploder.model.ButtonStyleModelTest;
-  import xd.stylesploder.model.GlobalStyleModelTest;
-  import xd.stylesploder.model.SparkStyleModelBaseTest;
-  import xd.stylesploder.parser.PropertyParser;
-  import xd.stylesploder.parser.PropertyParserTest;
+import xd.stylesploder.export.StyleModelFormatterTest;
+import xd.stylesploder.factory.ControlFactoryTest;
+import xd.stylesploder.model.ButtonStyleModelTest;
+import xd.stylesploder.model.GlobalStyleModelTest;
+import xd.stylesploder.model.SparkStyleModelBaseTest;
+import xd.stylesploder.parser.PropertyParserTest;
 
-  // add your test instances to the list of members below
-  // so the suite can run them
-  [Suite]
-  [RunWith("org.flexunit.runners.Suite")]
-  public class StylesploderTestSuite
-  {
+// add your test instances to the list of members below
+// so the suite can run them
+[Suite]
+[RunWith("org.flexunit.runners.Suite")]
+public class StylesploderTestSuite {
     public var buttonTest:ButtonStyleModelTest
     public var controlFactoryTest:ControlFactoryTest;
     public var formatterTest:StyleModelFormatterTest;
     public var globalTest:GlobalStyleModelTest
     public var parserTest:PropertyParserTest;
     public var styleModelBaseTest:SparkStyleModelBaseTest;
-  }
+}
 }

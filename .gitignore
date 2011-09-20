@@ -2,6 +2,8 @@
 .project
 .flexProperties
 .settings/*
+*.iml
+html/*
 bin/*
 bin-debug/*
 bin-debug/Flex4StyleExplorer.swf
